@@ -1,0 +1,323 @@
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Black.eot');
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Black.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/woff2/IRANSansWeb(FaNum)_Black.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../../fonts/woff/IRANSansWeb(FaNum)_Black.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/ttf/IRANSansWeb(FaNum)_Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Medium.eot');
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Medium.emot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../../fonts/woff/IRANSansWeb(FaNum)_Medium.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/ttf/IRANSansWeb(FaNum)_Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Light.eot');
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../../fonts/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 200;
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_UltraLight.eot');
+    src: url('../../fonts/eot/IRANSansWeb(FaNum)_UltraLight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/woff2/IRANSansWeb(FaNum)_UltraLight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../../fonts/woff/IRANSansWeb(FaNum)_UltraLight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/ttf/IRANSansWeb(FaNum)_UltraLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../fonts/eot/IRANSansWeb(FaNum).eot');
+    src: url('../../fonts/eot/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/woff2/IRANSansWeb(FaNum).woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+    url('../../fonts/woff/IRANSansWeb(FaNum).woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 600;
+    src: url('../../fonts/yekan/eot/iranyekanwebboldfanum.eot');
+    src: url('../../fonts/yekan/eot/iranyekanwebboldfanum.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/yekan/woff/iranyekanwebboldfanum.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/yekan/ttf/iranyekanwebboldfanum.ttf') format('truetype');
+}
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../../fonts/yekan/eot/iranyekanweblightfanum.eot');
+    src: url('../../fonts/yekan/eot/iranyekanweblightfanum.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/yekan/woff/iranyekanweblightfanum.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/yekan/ttf/iranyekanweblightfanum.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../fonts/yekan/eot/iranyekanwebregularfanum.eot');
+    src: url('../../fonts/yekan/eot/iranyekanwebregularfanum.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/yekan/woff/iranyekanwebregularfanum.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/yekan/ttf/iranyekanwebregularfanum.ttf') format('truetype');
+}
+@font-face {
+    font-family: lalezar;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../../fonts/Lalezar.eot');
+    src: url('../../fonts/Lalezar.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+    url('../../fonts/Lalezar.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../../fonts/Lalezar.ttf') format('truetype');
+}
+@font-face {
+    font-family: aviny;
+    font-style: normal;
+    src: url('../../fonts/aviny.ttf') format('truetype');
+}
+
+/*
+Edait font :  Use the code (font-family: " iransans", iranyekan !important;) to change the font to Iran Sense
+*/
+body{
+    font-family: "iranyekan", iransans;
+}
+h1, h2, h3, h4, h5, h6 , .rtl-font , #hero h2 , .about .content .btn-learn-more, .count-box p , .cta .cta-btn , .pricing .box h4 span, .pricing .box h4 sup , .pricing .box .btn-buy , .faq .faq-list a
+, #footer .footer-top .footer-contact p {
+    font-family: "iransans", iranyekan !important;
+}
+
+p {
+    line-height: 2rem;
+}
+/*
+index.php (header)
+*/
+
+.rtl-getstarted {
+    margin-right: 30px;
+    margin-left: 0px !important;
+}
+#header .logo , #hero h1 {
+    font-family: "aviny", lalezar !important;
+    font-weight: 500;
+    letter-spacing: -1px;
+    font-size: 35px;
+}
+.navbar a i, .navbar a:focus i {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+#hero .icon-box .description {
+    text-align: justify;
+    font-size: 14px;
+}
+#hero h1 {
+    font-size: 3.7rem;
+    line-height: 5rem;
+}
+#hero .icon-box {
+    text-align: center;
+}
+.navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
+    width: 75px;
+}
+/*
+index.php (About Section)
+*/
+
+.about .content ul i {
+    right: 0;
+    left: none;
+}
+.about .content ul li {
+    padding-left: 0px;
+    padding-right: 28px;
+}
+.about .content .btn-learn-more {
+    letter-spacing: 0px;
+}
+.rtl-row-content {
+    text-align: justify;
+}
+
+/*
+index.php (About Video Section)
+*/
+
+.about-video .content ul i {
+    left: auto;
+    right: 0;
+}
+.about-video .content ul li {
+    padding-left: 0px;
+    padding-right: 28px;
+}
+/*
+index.php (Testimonials Section)
+*/
+
+.testimonials .testimonial-item .quote-icon-left {
+    right: 0;
+    left: auto;
+}
+.testimonials .testimonial-item .quote-icon-right {
+    right: auto;
+    left: 0;
+}
+/*
+index.php (Services Section)
+*/
+
+.services .icon-box h4 {
+    font-size: 18px;
+}
+.cta .cta-btn {
+    letter-spacing: 0px;
+}
+
+/*
+index.php (Pricing Section)
+*/
+
+.pricing .box h4 sup{
+    font-size: 15px;
+    bottom: -15px;
+    right: -3px;
+}
+/*
+index.php (Frequently Asked Questions Section)
+*/
+.faq .faq-list p {
+    font-size: 13px;
+}
+.faq .faq-list .icon-help {
+    right: 20px;
+    left: 0;
+}
+.faq .faq-list .icon-show, .faq .faq-list .icon-close {
+    right: auto;
+    left: 0;
+}
+/*
+index.php (Contact Section)
+*/
+.contact .info i {
+    float: right;
+}
+.contact .info h4 {
+    padding: 0 60px 0 0;
+    font-size: 16px;
+}
+.contact .info p{
+    padding: 0 60px 0 0;
+}
+
+/*
+index.php (Footer)
+*/
+
+#footer .footer-newsletter form input[type=submit] {
+    left: -2px;
+    right: auto;
+    border-radius:5px 0 0 5px;
+}
+#footer .footer-newsletter form input[type=email] {
+    width: 100%;
+}
+#footer .footer-top .footer-contact h3 {
+    font-family: "lalezar", iranyekan !important;
+}
+.text-md-start {
+    text-align: right !important;
+    margin-right: 0 !important;
+}
+.d-md-flex {
+    justify-content: space-between;
+}
+
+/*
+inner-page.html (container)
+*/
+.container img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+}
+
+.breadcrumbs ol li + li {
+    padding-left: 0px;
+    padding-right: 10px;
+}
+.breadcrumbs ol li + li::before {
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
+/*
+portfolio-details.html (Portfolio Details Section)
+*/
+
+.portfolio-description p {
+    text-align: justify;
+}
+.portfolio-description h2 {
+    font-size: 21px !important;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+/*
+(v4.7.0.1)
+*/
+
+@media (min-width: 1366px) {
+    .rtl-dropdown {right: auto !important; left: -100% !important;}
+}
+
+.navbar .dropdown ul {
+    right: 14px;
+    left: auto;
+}
+#hero h2 {
+    color: #5e5e5e;
+    margin: 10px 0 0 0;
+    font-size: 21px;
+    font-family: iransans !important;
+}
+
+/*
+(v4.9.0)
+*/
+@media (max-width: 1366px){
+    .navbar .dropdown .dropdown:hover>ul {
+        right: 100%;
+        left: unset;
+    }
+}
+.breadcrumbs h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+.lalezar {
+    font-family: lalezar;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+}
