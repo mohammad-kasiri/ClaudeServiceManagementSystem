@@ -30,24 +30,8 @@ class HomeController extends Controller
         if (!$plan->is_active)
             abort(404);
 
-        $invoice= Invoice::query()->create([
-            'user_id'       => auth()->check()? auth()->id(): null,
-            'plan_id'       => $plan->id,
-            'period_id'     => $plan->period_id,
-            'traffic_id'    => $plan->traffic_id,
-            'discount_id'   => $plan->discount_id,
-            'plan_price'    => $plan->price,
-            'plan_rrp_price'=> is_null($plan->rrp_price) ? 0 : $plan->rrp_price,
-            'payable_price' => $plan->price * 1,
-            'quantity'      => 1,
-            'status'        => 'awaiting',
-            'type'          => 'buy',
-        ]);
+        session()->put('cart' , json_encode(['plan_id' => $plan->id]));
 
-        session()->put('invoice' , $invoice->id);
-
-        return auth()->check()
-            ? redirect()->route('invoice', ['invoice' => $invoice])
-            : redirect()->route('auth.login.index');
+        return  redirect()->route('cart');
     }
 }

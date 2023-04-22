@@ -32,7 +32,6 @@ return new class extends Migration
             $table->integer('quantity');
             $table->unsignedBigInteger('plan_price');
             $table->unsignedBigInteger('plan_rrp_price');
-            $table->unsignedBigInteger('discount_code_price')->default(0);
             $table->unsignedBigInteger('payable_price');
             $table->string('status')->default('awaiting'); // awaiting, creating , uncompleted , completed
             $table->string('type');    //new_purchase , extension

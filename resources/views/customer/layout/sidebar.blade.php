@@ -49,13 +49,7 @@
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
-                        <i class="menu-icon flaticon-coins"></i>
-                        <span class="menu-text">تراکنش ها</span>
-                    </a>
-                </li>
-                <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('panel.invoice.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-statistics"></i>
                         <span class="menu-text">صورتحساب ها</span>
                     </a>
@@ -73,13 +67,13 @@
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('panel.profile.edit')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-edit"></i>
                         <span class="menu-text">تغییر پروفایل</span>
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('auth.logout')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-logout"></i>
                         <span class="menu-text">خروج</span>
                     </a>

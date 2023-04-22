@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Morilog\Jalali\Jalalian;
 
 /**
  * @property int|mixed $quantity
@@ -15,14 +16,31 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
-    protected $fillable=['user_id', 'plan_id', 'period_id', 'traffic_id', 'discount_id', 'plan_price', 'plan_rrp_price', 'discount_price', 'payable_price', 'quantity', 'status', 'type'];
+    protected $fillable=['user_id', 'plan_id', 'period_id', 'traffic_id', 'discount_id', 'plan_price', 'plan_rrp_price', 'payable_price', 'quantity', 'status', 'type'];
 
     public function plan()      {return $this->belongsTo(Plan::class ,'plan_id');}
     public function period()    {return $this->belongsTo(Period::class ,'period_id');}
     public function traffic()   {return $this->belongsTo(Traffic::class ,'traffic_id');}
     public function discount()  {return $this->belongsTo(Discount::class ,'discount_id');}
-    public function accounts()  {return $this->belongsToMany(Account::class, 'account_invoice', 'invoice_id', 'account_id');
+    public function accounts()  {return $this->belongsToMany(Account::class, 'account_invoice', 'invoice_id', 'account_id');}
+    public function created_at(){return Jalalian::forge($this->created_at)->format('H:i   %d-%B-%Y');}
 
+    public function status()
+    {
+        if ($this->status == 'not_paid')   return 'پرداخت نشده';
+        if ($this->status == 'failed')     return 'پرداخت ناموفق';
+        if ($this->status == 'creating')   return 'در حال ایجاد اشتراک';
+        if ($this->status == 'completed')  return 'پرداخت موفق';
+        return null;
+    }
+
+    public function status_class()
+    {
+        if ($this->status == 'not_paid')   return 'danger';
+        if ($this->status == 'failed')     return 'danger';
+        if ($this->status == 'creating')   return 'warning';
+        if ($this->status == 'completed')  return 'success';
+        return 'info';
     }
 
     public function discount_code_price()

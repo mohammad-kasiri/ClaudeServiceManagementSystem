@@ -54,9 +54,9 @@
             <div class="col-xl-7 col-lg-9 text-center">
                 <h1 class="my-3">
                     خرید سرویس
-                    {{$invoice->plan->location->title}}
-                    {{$invoice->plan->period->title}}
-                    {{$invoice->plan->traffic->title}}
+                    {{$cart->plan->location->title}}
+                    {{$cart->plan->period->title}}
+                    {{$cart->plan->traffic->title}}
                 </h1>
             </div>
         </div>
@@ -69,14 +69,14 @@
                                <div class="d-flex justify-content-between align-items-center">
                                    <span>تعداد:</span>
                                    <div class="d-flex justify-content-end">
-                                       <a class="btn btn-outline-secondary" href="{{route('invoice.increment' , $invoice)}}">+</a>
-                                       <input type="number" class="form-control w-50" value="{{$invoice->quantity}}" disabled>
-                                       <a class="btn btn-outline-secondary" href="{{route('invoice.decrement' , $invoice)}}">-</a>
+                                       <a class="btn btn-outline-secondary" href="{{route('cart.increment')}}">+</a>
+                                       <input type="number" class="form-control w-50" value="{{$cart->quantity}}" disabled>
+                                       <a class="btn btn-outline-secondary" href="{{route('cart.decrement')}}">-</a>
                                    </div>
                                </div>
                                 <div class="d-flex justify-content-between align-items-center mt-5">
                                     <span>کد تخفیف:</span>
-                                    <form action="{{route('invoice.discount', $invoice)}}" class="d-flex justify-content-end" method="post">
+                                    <form action="{{route('cart.discount')}}" class="d-flex justify-content-end" method="post">
                                         @csrf
                                         <input type="text" class="form-control  w-75" placeholder=" کد تخفیف" name="discount_code">
                                         <button class="btn btn-success">اعمال</button>
@@ -106,30 +106,30 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mt-1">
                                     <span>تعداد سرویس:</span>
-                                    <span>{{ $invoice->quantity}} عدد </span>
+                                    <span>{{ $cart->quantity}} عدد </span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3">
                                     <span>قیمت واحد:</span>
-                                    <span>{{number_format($invoice->fee())}} تومان</span>
+                                    <span>{{number_format( $cart->fee() )}} تومان</span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3">
                                     <span>مجموع قیمت:</span>
-                                    <span>{{number_format($invoice->sum_without_discount()) }} تومان</span>
+                                    <span>{{number_format($cart->sum_without_discount()) }} تومان</span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3">
                                     <span>میزان تخفیف:</span>
-                                    <span>{{number_format($invoice->sum_discount())}} تومان</span>
+                                    <span>{{number_format($cart->sum_discount())}} تومان</span>
                                 </div>
                             </div>
                             <div class="card-footer text-success">
                                 <div class="d-flex justify-content-between mt-3">
                                     <b>مجموع قابل پرداخت:</b>
-                                    <b>{{$invoice->payable_price()}} تومان</b>
+                                    <b>{{number_format($cart->payable_price)}} تومان</b>
                                 </div>
                             </div>
                         </div>
 
-                        <form action="{{route('callback', $invoice)}}">
+                        <form action="{{route('purchase')}}" method="post"> @csrf
                             <button class="btn btn-success w-100 mt-3">پرداخت</button>
                         </form>
 

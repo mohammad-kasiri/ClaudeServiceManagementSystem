@@ -25,7 +25,7 @@ class PlanTableSeeder extends Seeder
                         'period_id'   => $period->id,
                         'traffic_id'  => $traffic->id,
                         'rrp_price'   => 200000,
-                        'price'       => 100000,
+                        'price'       => 100,
                     ]);
                 }
             }

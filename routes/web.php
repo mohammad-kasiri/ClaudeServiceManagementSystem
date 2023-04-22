@@ -2,21 +2,27 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\InvoiceController;
+use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',                             [HomeController::class , 'index'])      ->name('index');
 Route::get('/buy/{plan}',                   [HomeController::class , 'buy'])        ->name('buy');
-Route::get('/invoice/{invoice}',            [InvoiceController::class, 'index'])    ->name('invoice');
 
-Route::get('/purchase/{invoice}',           [PurchaseController::class, 'pay'])     ->name('purchase');
-Route::get('/purchase/{invoice}/callback',  [PurchaseController::class, 'callback'])->name('callback');
+Route::get('/cart',                         [CartController::class, 'index'])              ->name('cart');
+Route::get('/cart/increment',               [CartController::class, 'incrementQuantity'])  ->name('cart.increment');
+Route::get('/cart/decrement',               [CartController::class, 'decrementQuantity'])  ->name('cart.decrement');
+Route::post('/cart/discount',               [CartController::class, 'applyDiscountCode'])  ->name('cart.discount');
 
-Route::get('/invoice/{invoice}/increment',  [InvoiceController::class, 'incrementQuantity'])  ->name('invoice.increment');
-Route::get('/invoice/{invoice}/decrement',  [InvoiceController::class, 'decrementQuantity'])  ->name('invoice.decrement');
-Route::post('/invoice/{invoice}/discount',  [InvoiceController::class, 'applyDiscountCode'])  ->name('invoice.discount');
+Route::post('/purchase',                    [PurchaseController::class, 'pay'])     ->name('purchase')->middleware(['auth']);
+Route::post('/purchase/{invoice}/callback',  [PurchaseController::class, 'callback'])->name('callback');
+
+
+
+
 
 
 
