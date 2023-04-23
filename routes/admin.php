@@ -4,11 +4,13 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ServerController;
 use App\Http\Controllers\Admin\TrafficController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 Route::middleware(['auth' , 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -69,4 +71,7 @@ Route::middleware(['auth' , 'is_admin'])->prefix('admin')->name('admin.')->group
     Route::post('/discount',                        [DiscountController::class, 'store'])         ->name('discount.store');
     Route::get('/discount/{discount}/edit',         [DiscountController::class, 'edit'])          ->name('discount.edit');
     Route::patch('/discount/{discount}',            [DiscountController::class, 'update'])        ->name('discount.update');
+
+    Route::get('/invoice',                          [InvoiceController::class, 'index'])          ->name('invoice.index');
+    Route::get('/transactions',                     [TransactionController::class, 'index'])      ->name('transaction.index');
 });

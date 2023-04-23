@@ -18,6 +18,7 @@ class Invoice extends Model
     use HasFactory;
     protected $fillable=['user_id', 'plan_id', 'period_id', 'traffic_id', 'discount_id', 'plan_price', 'plan_rrp_price', 'payable_price', 'quantity', 'status', 'type'];
 
+    public function user()      {return $this->belongsTo(User::class ,'user_id');}
     public function plan()      {return $this->belongsTo(Plan::class ,'plan_id');}
     public function period()    {return $this->belongsTo(Period::class ,'period_id');}
     public function traffic()   {return $this->belongsTo(Traffic::class ,'traffic_id');}

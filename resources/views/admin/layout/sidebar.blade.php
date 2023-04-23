@@ -88,21 +88,15 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true"  data-menu-toggle="hover">
-                                <a  href="" class="menu-link ">
+                                <a  href="{{route('admin.invoice.index')}}" class="menu-link ">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">سفارشات ثبت شده</span>
                                 </a>
                             </li>
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true"  data-menu-toggle="hover">
-                                <a  href="" class="menu-link ">
+                                <a  href="{{route('admin.transaction.index')}}" class="menu-link ">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">تراکنش ها</span>
-                                </a>
-                            </li>
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true"  data-menu-toggle="hover">
-                                <a  href="" class="menu-link ">
-                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">اکانت های ایجاد شده</span>
                                 </a>
                             </li>
                         </ul>

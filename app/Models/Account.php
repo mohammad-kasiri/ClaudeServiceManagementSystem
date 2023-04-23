@@ -18,4 +18,9 @@ class Account extends Model
 
     public function expire_at()       {return Jalalian::forge($this->xui_expire_at)->format('H:i   %d-%B-%Y');}
     public function created_at()      {return Jalalian::forge($this->created_at)->format('H:i   %d-%B-%Y');}
+
+    public function config()
+    {
+        return 'vless://' . $this->xui_uuid . '@' . $this->server->address . ':' . $this->xui_port. '?type=ws&security=none&path=%2F#' . $this->xui_remark;
+    }
 }

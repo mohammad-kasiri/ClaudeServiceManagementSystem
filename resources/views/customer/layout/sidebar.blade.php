@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('panel.accounts.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-tea-cup"></i>
                         <span class="menu-text">کانفیگ های من</span>
                     </a>
