@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('panel.ticket.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-security"></i>
                         <span class="menu-text">پشتیبانی</span>
                     </a>

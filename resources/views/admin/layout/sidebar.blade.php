@@ -37,7 +37,7 @@
             <!--begin::Menu Nav-->
             <ul class="menu-nav ">
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('admin.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-home"></i>
                         <span class="menu-text">پیشخوان</span>
                     </a>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('admin.ticket.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-chat-1"></i>
                         <span class="menu-text">تیکتینگ</span>
                     </a>

@@ -33,11 +33,21 @@ class Server extends Model
             ->where('server_id', $this->id)
             ->where('status', '!=', 'expired')
             ->pluck('xui_port')->toArray();
-        do {
-            $port =rand($this->min_port, $this->max_port);
-        } while (in_array($port, $filled_ports));
 
-        return $port;
+        if (count($filled_ports) !=  ($this->max_port - $this->min_port) + 1)
+        {
+           $port =rand($this->min_port, $this->max_port);
+           if (!in_array($port, $filled_ports))
+            return $port;
+
+
+
+        }
+
+        return false;
+
+
+
     }
 
     public function display_address()

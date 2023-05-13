@@ -70,6 +70,18 @@ return [
             'days' => 14,
         ],
 
+        'sync_xui' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/sync_xui.log'),
+            'level' => 'debug',
+        ],
+
+        'transactions_xui' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/transactions_xui.log'),
+            'level' => 'debug',
+        ],
+
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),

@@ -15,6 +15,9 @@
 @endsection
 
 @section('content')
+    @if($errors->hasAny())
+        {{dd($errors->all())}}
+    @endif
     <!--begin::Entry-->
     <!--begin::Container-->
     <div class=" container ">

@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Gilroy-Black';
+    src: url('../assets/fonts/Gilroy-Black.woff2');
+}
+@font-face {
+    font-family: 'YekanBakh';
+    src: url('../assets/fonts/YekanBakh-Light.woff2');
+}
+@font-face {
+    font-family: 'YekanBakh-SemiBold';
+    src: url('../assets/fonts/YekanBakh-SemiBold.woff2');
+}
+@font-face {
+    font-family: 'YekanBakh-Black';
+    src: url('../assets/fonts/YekanBakh-Black.woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/fonts/Poppins-Regular.woff2');
+}

@@ -5,6 +5,7 @@ namespace App\XUI;
 use App\Models\Server;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class XUI
@@ -44,7 +45,15 @@ class XUI
     {
         $response= Http::withHeaders($this->getHeaders())
             ->post($this->getFullAddress().'/del/'. $id);
-        dd(json_decode($response->body()));
+        $response = json_decode($response->body());
+
+       $response->success
+            ? Log::channel('transactions_xui')->   info($this->createDeleteLog($id))
+            : Log::channel('transactions_xui')->warning($this->createDeleteLog($id));
+
+       return  isset($response->success)
+           ? (bool) $response->success
+           : '';
     }
 
     public function addAccount($remark, $uuid, $port, $total_traffic, $period)
@@ -73,6 +82,32 @@ class XUI
        return json_decode($response->body())->success;
     }
 
+    public function updateUUID($config, $uuid)
+    {
+        $body=[
+            'up'                =>  0,
+            'down'              =>  0,
+            'total'             => ($config->xui_traffic*1073741824),
+            'remark'            =>  $config->xui_remark,
+            'enable'            =>  true,
+            'listen'            =>  null,
+            'expiryTime'        =>  (int) (Carbon::parse($config->xui_expire_at)->timestamp.'000'),
+            'port'              =>  $config->xui_port,
+            'protocol'          => 'vless',
+
+            'settings'          => '{"clients":[{"id":"'.$uuid.'","flow":"xtls-rprx-direct"}],"decryption":"none","fallbacks":[]}',
+            'streamSettings'    => '{"network":"ws","security":"none","wsSettings":{"acceptProxyProtocol":false,"path":"/","headers":{}}}',
+            'sniffing'          => '{"enabled":false,"destOverride":["http","tls"]}',
+        ];
+
+        $response= Http::withHeaders($this->getHeaders())
+            ->asForm()
+            ->withBody(json_encode($body))
+            ->post($this->getFullAddress().'/update/'.$config->xui_id);
+
+        return json_decode($response->body())->success;
+    }
+
     private function getHeaders() : array
     {
         return [
@@ -90,5 +125,13 @@ class XUI
         return is_null($this->server->port)
             ? $this->server->address. self::URI_PREFIX
             : $this->server->address.":".$this->server->port. self::URI_PREFIX;
+    }
+
+    private function createDeleteLog($id)
+    {
+        return
+"
+server => {$this->server->address}
+id     => $id";
     }
 }

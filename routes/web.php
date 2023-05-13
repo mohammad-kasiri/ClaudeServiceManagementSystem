@@ -4,10 +4,19 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\HomeController;
-use App\Http\Controllers\Web\InvoiceController;
 use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\PurchaseController;
+use App\XUI\XUI;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+
+Route::get('/', function (){
+    $config= \App\Models\Account::query()->where('id', 18)->with('server')->first();
+
+    XUI::onServer($config->server)->updateUUID($config ,Str::uuid() );
+    dd(10);
+});
+
 
 Route::get('/',                             [HomeController::class , 'index'])      ->name('index');
 Route::get('/buy/{plan}',                   [HomeController::class , 'buy'])        ->name('buy');
@@ -18,7 +27,7 @@ Route::get('/cart/decrement',               [CartController::class, 'decrementQu
 Route::post('/cart/discount',               [CartController::class, 'applyDiscountCode'])  ->name('cart.discount');
 
 Route::post('/purchase',                    [PurchaseController::class, 'pay'])     ->name('purchase')->middleware(['auth']);
-Route::post('/purchase/{invoice}/callback',  [PurchaseController::class, 'callback'])->name('callback');
+Route::get('/purchase/{invoice}/callback', [PurchaseController::class, 'callback'])->name('callback');
 
 
 

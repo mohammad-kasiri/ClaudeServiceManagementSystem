@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ServerController;
+use App\Http\Controllers\Admin\TicketController;
+use App\Http\Controllers\Admin\TicketMessageController;
 use App\Http\Controllers\Admin\TrafficController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
@@ -71,6 +73,14 @@ Route::middleware(['auth' , 'is_admin'])->prefix('admin')->name('admin.')->group
     Route::post('/discount',                        [DiscountController::class, 'store'])         ->name('discount.store');
     Route::get('/discount/{discount}/edit',         [DiscountController::class, 'edit'])          ->name('discount.edit');
     Route::patch('/discount/{discount}',            [DiscountController::class, 'update'])        ->name('discount.update');
+
+    Route::get('/tickets',                          [TicketController::class, 'index'])          ->name('ticket.index');
+    Route::get('/tickets/{ticket}/close',           [TicketController::class, 'close'])          ->name('ticket.close');
+    Route::get('/tickets/{ticket}/pending',         [TicketController::class, 'pending'])        ->name('ticket.pending');
+
+    Route::get('/tickets/{ticket}/messages',        [TicketMessageController::class, 'index'])   ->name('ticket.message.index');
+    Route::post('/tickets/{ticket}/messages',       [TicketMessageController::class, 'store'])   ->name('ticket.message.store');
+
 
     Route::get('/invoice',                          [InvoiceController::class, 'index'])          ->name('invoice.index');
     Route::get('/transactions',                     [TransactionController::class, 'index'])      ->name('transaction.index');

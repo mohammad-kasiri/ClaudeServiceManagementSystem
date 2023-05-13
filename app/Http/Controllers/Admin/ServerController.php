@@ -40,7 +40,7 @@ class ServerController extends Controller
             'capacity'          => ['required', 'numeric'] ,
             'min_port'          => ['required' , 'numeric'] ,
             'max_port'          => ['required' , 'numeric'] ,
-            'max_port'          => ['required' , 'numeric'] ,
+            'mix_port'          => ['required' , 'numeric'] ,
         ]);
 
 
@@ -81,7 +81,6 @@ class ServerController extends Controller
             'protocol'          => ['required' , 'in:http,https'] ,
             'user'              => ['required'] ,
             'pass'              => ['required'] ,
-            'capacity'          => ['required', 'numeric'] ,
             'min_port'          => ['required' , 'numeric'] ,
             'max_port'          => ['required' , 'numeric'] ,
         ]);
