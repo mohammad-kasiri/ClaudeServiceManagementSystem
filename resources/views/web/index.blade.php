@@ -164,6 +164,7 @@
         <div class="swiper swiper1 md:w-[80%] w-full pb-[40px]" dir="ltr">
             <div class="swiper-wrapper flex justify-center">
                 @foreach($locations as $key=>$location)
+                    @if($location->availablePorts() > 0)
                     <div data-first="{{$key}}"   data-location="{{$location->id}}"
                         class="flags swiper-slide group relative flex flex-col items-center gap-4 h-fit sm:p-8 p-6 hover:bg-[#0F1D4E] rounded-xl cursor-pointer transition">
                         <img src="{{asset($location->image)}}"
@@ -172,6 +173,7 @@
                         <img src="./assets/images/countries-hover-effect.svg"
                              class="absolute -bottom-8 z-[-1] group-hover:visible invisible group-hover:opacity-100 opacity-0 transition">
                     </div>
+                        @endif
                 @endforeach
 
             </div>
@@ -201,8 +203,8 @@
                                      style="mask-image: url('./assets/images/sircle2.svg'); mask-size: cover; mask-position: top;">
                                 </div>
                                 <img src="./assets/images/wave2.svg" class="absolute right-[50%] translate-x-[50%] sm:bottom-[-2rem] bottom-[-7vw] sm:w-auto w-[50%]">
-                                <span class="relative z-[1] block mb-3 font-yekanbakh text-white text-lg"> {{$location->title}}</span>
-                                <h3 class="relative z-[1] font-yekanbakh-black text-white lg:text-5xl md:text-4xl text-5xl"> {{$period->title}}</h3>
+                                <span class="relative z-[1] block mb-3 font-yekanbakh text-white text-lg"> {{$location->title  }}</span>
+                                <h3 class="relative z-[1] font-yekanbakh-black text-white lg:text-5xl md:text-4xl text-5xl"> {{$period->title                            }}</h3>
                             </div>
                             <div class="flex flex-col items-center gap-4 mb-8">
                         <span
@@ -216,15 +218,15 @@
                             ویندوز ، لینوکس ، آیفون ، مک</span>
                             </div>
                             <div class="flex flex-col items-center gap-3 font-yekanbakh-semibold text-[#B2BFEE] ">
-                                @foreach($plans->where('location_id', $location->id)->where('period_id', $period->id) as $plan)
+                                @foreach                            ($plans->where('location_id', $location->id)->where('period_id', $period->id) as $plan        )
                                     <div
                                         class="flex justify-between items-center w-full bg-[#0F1A40] xl:p-5 xl:pr-6 md:p-4 md:pr-5 p-3 pr-4 rounded-xl">
-                                        <span class="xl:text-lg text-base">{{$plan->traffic->title}}</span>
+                                        <span class="xl:text-lg text-base">{    {$plan->traffic->title }}</span>
                                         <div class="flex flex-col items-center gap-2">
-                                            @if($plan->rrp_price != null)
+                                            @if    ($plan->rrp_price != null  )
                                                 <span class="xl:text-sm text-xs line-through">{{$plan->rrp_price()}} تومان</span>
-                                            @endif
-                                            <span class="xl:text-base text-sm">{{$plan->price()}} تومان </span>
+                                                    @endif
+                                            <span class="xl:text-base text-sm">{{$plan->price() }} تومان </span>
                                         </div>
                                         <a href="{{route('buy', ['plan' => $plan])}}" class="group p-2 hover:bg-[#00C2FF] rounded-md transition">
                                             <img src="./assets/icons/arrow-left2.svg" class="group-hover:hidden block xl:w-10 w-7">

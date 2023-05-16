@@ -26,9 +26,9 @@ class HomeController extends Controller
                 $activeServers[] = $server->location_id;
 
 
-        foreach ($locations as $key => $location)
-            if (!in_array($location->id, $activeServers))
-                $locations->forget($key);
+        //foreach ($locations as $key => $location)
+        //    if (!in_array($location->id, $activeServers))
+        //        $locations->forget($key);
 
 
         return view('web.index')->with([

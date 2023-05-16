@@ -10,7 +10,7 @@ class AccountController extends Controller
 {
     public function index()
     {
-        $accounts= Account::query()->with('server.location')->where('id', auth()->id())->get();
+        $accounts= Account::query()->with('server.location')->where('user_id', auth()->id())->get();
         return view('customer.accounts.index')
             ->with(['accounts' => $accounts]);
     }

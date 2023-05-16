@@ -37,7 +37,7 @@
             <!--begin::Menu Nav-->
             <ul class="menu-nav ">
                 <li class="menu-item ">
-                    <a  href="" class="menu-link menu-toggle">
+                    <a  href="{{route('panel.index')}}" class="menu-link menu-toggle">
                         <i class="menu-icon flaticon-dashboard"></i>
                         <span class="menu-text">پیشخوان</span>
                     </a>
