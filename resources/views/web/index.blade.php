@@ -204,7 +204,7 @@
                                 </div>
                                 <img src="./assets/images/wave2.svg" class="absolute right-[50%] translate-x-[50%] sm:bottom-[-2rem] bottom-[-7vw] sm:w-auto w-[50%]">
                                 <span class="relative z-[1] block mb-3 font-yekanbakh text-white text-lg"> {{$location->title  }}</span>
-                                <h3 class="relative z-[1] font-yekanbakh-black text-white lg:text-5xl md:text-4xl text-5xl"> {{$period->title                            }}</h3>
+                                <h3 class="relative z-[1] font-yekanbakh-black text-white lg:text-5xl md:text-4xl text-5xl"> {{$period->title }}</h3>
                             </div>
                             <div class="flex flex-col items-center gap-4 mb-8">
                         <span
@@ -221,7 +221,7 @@
                                 @foreach                            ($plans->where('location_id', $location->id)->where('period_id', $period->id) as $plan        )
                                     <div
                                         class="flex justify-between items-center w-full bg-[#0F1A40] xl:p-5 xl:pr-6 md:p-4 md:pr-5 p-3 pr-4 rounded-xl">
-                                        <span class="xl:text-lg text-base">{    {$plan->traffic->title }}</span>
+                                        <span class="xl:text-lg text-base">{{$plan->traffic->title }}</span>
                                         <div class="flex flex-col items-center gap-2">
                                             @if    ($plan->rrp_price != null  )
                                                 <span class="xl:text-sm text-xs line-through">{{$plan->rrp_price()}} تومان</span>

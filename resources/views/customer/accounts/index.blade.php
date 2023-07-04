@@ -32,6 +32,7 @@
                             <th class="text-center">کشور</th>
                             <th class="text-center">کانفیگ</th>
                             <th class="text-center">تاریخ انقضا</th>
+                            <th class="text-center">تغییر آدرس کافیگ</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,8 +45,19 @@
                                 <td class="text-center align-middle" dir="ltr" onclick="copyToClipboard('{{$account->config()}}')">
                                     {{$account->config() }}
                                 </td>
-
                                 <td class="text-center align-middle"> {{$account->expire_at()}}</td>
+                                <td class="text-center align-middle text-nowrap">
+                                    <a href="{{route('panel.accounts.change' , $account)}}"
+                                       class="btn btn-icon btn-circle btn-sm btn-outline-warning"
+                                       data-container="body"
+                                       data-delay="500"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-content="تغییر وضعیت">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </a>
+                                </td>
+
                             </tr>
                         @endforeach
                         </tbody>

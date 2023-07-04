@@ -135,12 +135,22 @@ class PurchaseController extends Controller
 
         for ( $i=0; $i < $invoice->quantity; $i++)
         {
-            $server= Server::query()->whereLocation_id($invoice->plan->location_id)->active()->orderBy('priority')->first();
+            $servers= Server::query()->whereLocation_id($invoice->plan->location_id)->active()->orderBy('priority')->get();
+
+            $server=null;
+            foreach ($servers as $s)
+            {
+                if (!$s->is_filled()) {
+                    $server=$s;
+                    break;
+                }
+            }
 
             if (!$server->getEmptyPort())
             {
 
             }
+
 
             $accounts[]= $invoice->accounts()->create([
                 'user_id'       => auth()->id(),

@@ -79,7 +79,7 @@ class XUI
             ->withBody(json_encode($body))
             ->post($this->getFullAddress().'/add');
 
-       return json_decode($response->body())->success;
+       return json_decode($response->body());
     }
 
     public function updateUUID($config, $uuid)
@@ -105,7 +105,7 @@ class XUI
             ->withBody(json_encode($body))
             ->post($this->getFullAddress().'/update/'.$config->xui_id);
 
-        return json_decode($response->body())->success;
+        return json_decode($response);
     }
 
     private function getHeaders() : array
@@ -135,3 +135,6 @@ server => {$this->server->address}
 id     => $id";
     }
 }
+
+//f67ace0c-41cf-4071-b764-ebe25aec39e1
+//04cb78a7-a71d-4b12-b6e1-e1f999b76194

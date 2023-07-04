@@ -34,14 +34,20 @@ class Server extends Model
             ->where('status', '!=', 'expired')
             ->pluck('xui_port')->toArray();
 
+
         if (count($filled_ports) !=  ($this->max_port - $this->min_port) + 1)
         {
-           $port =rand($this->min_port, $this->max_port);
-           if (!in_array($port, $filled_ports))
-            return $port;
-
-
-
+            $min = $this->min_port;
+            $max = $this->max_port;
+            for ( $min ; $min <= $max; $min  = $min  + 1)
+            {
+                if (in_array($min, $filled_ports))
+                {
+                    continue;
+                }else{
+                    return $min;
+                }
+            }
         }
 
         return false;
